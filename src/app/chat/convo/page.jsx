@@ -4,20 +4,18 @@ import Button from "@/lib/components/Button";
 import Input from "@/lib/components/Input";
 import Textarea from "@/lib/components/Textarea";
 import { useSearchParams } from "next/navigation";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Send } from "react-bootstrap-icons";
 
 const Page = () => {
   const searchQuery = useSearchParams();
-  const [showDiscussion, setshowDiscussion] = useState(true);
+  const [showDiscussion, setshowDiscussion] = useState(false);
   const [topic, setTopic] = useState("");
   const [messages, setMessages] = useState([]);
   const [userMessage, setUserMessage] = useState("");
+  const scrollRef = useRef();
   const createDiscussion = (e) => {
     e.preventDefault();
-    console.log(searchQuery.get.id);
-    console.log(e.target.topic.value);
-    console.log(e.target.topic_message.value);
     setshowDiscussion((prev) => !prev);
     setTopic((prev) => e.target.topic.value);
     setMessages((prev) => [...prev, e.target.topic_message.value]);
@@ -29,6 +27,15 @@ const Page = () => {
       setUserMessage("");
     }
   };
+
+  useEffect(() => {
+    if (messages.length) {
+      scrollRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+      });
+    }
+  }, [messages.length]);
 
   return (
     <main className="relative">
@@ -64,15 +71,16 @@ const Page = () => {
             </Breadcrumbs.Body>
           </Breadcrumbs>
         </section>
-        <div className="h-screen flex flex-col justify-end overflow-y-auto">
+        <div className="overflow-auto flex flex-col gap-5 h-screen p-4">
           {messages.map((message, index) => (
             <span
-              className="rounded-md p-1 ms-auto"
+              className="bg-blue-500 text-white py-2 px-4 rounded-md max-w-xs self-end"
               key={`data-message-discussion-${index}`}
             >
               {message}
             </span>
           ))}
+          <div ref={scrollRef} />
         </div>
         <section className="p-4">
           <form onSubmit={sendMessage} className="flex w-full gap-3" action="">
@@ -84,7 +92,7 @@ const Page = () => {
               placeholder="Write a message..."
               type="text"
             />
-            <Button type="submit">
+            <Button className="btn-outline-primary" type="submit">
               <Send />
             </Button>
           </form>
