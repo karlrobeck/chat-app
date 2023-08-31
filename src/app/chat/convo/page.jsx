@@ -73,9 +73,9 @@ const Page = () => {
         </section>
         <div className="overflow-auto flex flex-col gap-5 h-screen p-4 w-full">
           {messages.map((message, index) => (
-            <div className="bg-blue-500 px-4 py-2 rounded-md text-white w-1/2 self-end break-words">
-              <div>{message}</div>
-            </div>
+            <p className="bg-blue-500 px-4 py-2 rounded-md text-white w-1/2 self-end break-words">
+              <span>{message}</span>
+            </p>
           ))}
           <div ref={scrollRef} />
         </div>
