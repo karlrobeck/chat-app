@@ -9,7 +9,7 @@ import { Send } from "react-bootstrap-icons";
 
 const Page = () => {
   const searchQuery = useSearchParams();
-  const [showDiscussion, setshowDiscussion] = useState(false);
+  const [showDiscussion, setshowDiscussion] = useState(true);
   const [topic, setTopic] = useState("");
   const [messages, setMessages] = useState([]);
   const [userMessage, setUserMessage] = useState("");
