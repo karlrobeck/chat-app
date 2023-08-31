@@ -3,17 +3,19 @@ import Breadcrumbs from "@/lib/components/Breadcrumbs";
 import Button from "@/lib/components/Button";
 import Input from "@/lib/components/Input";
 import Textarea from "@/lib/components/Textarea";
+import { useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 import { Send } from "react-bootstrap-icons";
 
-const Page = ({ params }) => {
+const Page = () => {
+  const searchQuery = useSearchParams();
   const [showDiscussion, setshowDiscussion] = useState(true);
   const [topic, setTopic] = useState("");
   const [messages, setMessages] = useState([]);
   const [userMessage, setUserMessage] = useState("");
   const createDiscussion = (e) => {
     e.preventDefault();
-    console.log(params.id);
+    console.log(searchQuery.get.id);
     console.log(e.target.topic.value);
     console.log(e.target.topic_message.value);
     setshowDiscussion((prev) => !prev);

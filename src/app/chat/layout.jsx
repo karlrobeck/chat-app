@@ -40,9 +40,7 @@ const Layout = ({ children }) => {
             <Sidebar className="p-4 absolute z-10">
               <Sidebar.Header className="flex gap-3">
                 <Avatar>
-                  <Image
-                    width={"3rem"}
-                    height={"3rem"}
+                  <img
                     src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
                     alt="avatar"
                   />
@@ -92,11 +90,12 @@ const Layout = ({ children }) => {
             <Menu.Items>
               {teachers.map((name, index) => (
                 <Menu.Item key={`data-menu-chat-item-${index}`}>
-                  <Link className="flex w-full gap-2" href={`/chat/${index}`}>
+                  <Link
+                    className="flex w-full gap-2"
+                    href={`/chat/convo?id=${index}`}
+                  >
                     <Avatar className="avatar-lg">
-                      <Image
-                        width={"3rem"}
-                        height={"3rem"}
+                      <img
                         src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
                         alt="avatar"
                       />
