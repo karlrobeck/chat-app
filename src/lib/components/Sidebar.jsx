@@ -9,7 +9,7 @@ const Sidebar = ({ children, className = "", ...props }) => {
   );
 };
 
-Sidebar.Header = ({ children, className = "", ...props }) => {
+const Header = ({ children, className = "", ...props }) => {
   return (
     <div {...props} className={`sidebar-header ${className}`}>
       {children}
@@ -17,7 +17,7 @@ Sidebar.Header = ({ children, className = "", ...props }) => {
   );
 };
 
-Sidebar.Footer = ({ children, className = "", ...props }) => {
+const Footer = ({ children, className = "", ...props }) => {
   return (
     <div {...props} className={`sidebar-footer ${className}`}>
       {children}
@@ -25,11 +25,16 @@ Sidebar.Footer = ({ children, className = "", ...props }) => {
   );
 };
 
-Sidebar.Content = ({ children, className = "", ...props }) => {
+const Content = ({ children, className = "", ...props }) => {
   return (
     <div {...props} className={`sidebar-content ${className}`}>
       {children}
     </div>
   );
 };
+
+Sidebar.Content = Content;
+Sidebar.Header = Header;
+Sidebar.Footer = Footer;
+
 export default Sidebar;

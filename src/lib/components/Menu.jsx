@@ -9,28 +9,28 @@ const Menu = ({ children, className = "", ...props }) => {
   );
 };
 
-Menu.Section = ({ children, className = "", ...props }) => {
+const Section = ({ children, className = "", ...props }) => {
   return (
     <section {...props} className={`menu-section ${className}`}>
       {children}
     </section>
   );
 };
-Menu.Title = ({ children, className = "", ...props }) => {
+const Title = ({ children, className = "", ...props }) => {
   return (
     <div {...props} className={`menu-title ${className}`}>
       {children}
     </div>
   );
 };
-Menu.Items = ({ children, className = "", ...props }) => {
+const Items = ({ children, className = "", ...props }) => {
   return (
     <ul {...props} className={`menu-items ${className}`}>
       {children}
     </ul>
   );
 };
-Menu.Item = ({ children, className = "", ...props }) => {
+const Item = ({ children, className = "", ...props }) => {
   return (
     <li {...props} className={`menu-item ${className}`}>
       {children}
@@ -38,8 +38,14 @@ Menu.Item = ({ children, className = "", ...props }) => {
   );
 };
 
-Menu.Toggle = (id) => {
+const Toggle = (id) => {
   return <input type="checkbox" id={`menu-${id}`} class="menu-toggle" />;
 };
+
+Menu.Section = Section;
+Menu.Title = Title;
+Menu.Items = Items;
+Menu.Item = Item;
+Menu.Toggle = Toggle;
 
 export default Menu;

@@ -3,6 +3,7 @@ import Avatar from "@/lib/components/Avatar";
 import Input from "@/lib/components/Input";
 import Menu from "@/lib/components/Menu";
 import Sidebar from "@/lib/components/Sidebar";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -39,7 +40,9 @@ const Layout = ({ children }) => {
             <Sidebar className="p-4 absolute z-10">
               <Sidebar.Header className="flex gap-3">
                 <Avatar>
-                  <img
+                  <Image
+                    width={"3rem"}
+                    height={"3rem"}
                     src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
                     alt="avatar"
                   />
@@ -91,7 +94,9 @@ const Layout = ({ children }) => {
                 <Menu.Item key={`data-menu-chat-item-${index}`}>
                   <Link className="flex w-full gap-2" href={`/chat/${index}`}>
                     <Avatar className="avatar-lg">
-                      <img
+                      <Image
+                        width={"3rem"}
+                        height={"3rem"}
                         src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
                         alt="avatar"
                       />
