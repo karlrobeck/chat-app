@@ -64,7 +64,7 @@ const Page = () => {
             </Breadcrumbs.Body>
           </Breadcrumbs>
         </section>
-        <div className="h-screen flex flex-col justify-end overflow-scroll">
+        <div className="h-screen flex flex-col justify-end overflow-y-auto">
           {messages.map((message, index) => (
             <span
               className="rounded-md p-1 ms-auto"
