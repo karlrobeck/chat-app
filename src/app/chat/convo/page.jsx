@@ -71,14 +71,11 @@ const Page = () => {
             </Breadcrumbs.Body>
           </Breadcrumbs>
         </section>
-        <div className="overflow-auto flex flex-col gap-5 h-screen p-4">
+        <div className="overflow-auto flex flex-col gap-5 h-screen p-4 w-full">
           {messages.map((message, index) => (
-            <span
-              className="bg-blue-500 text-white py-2 px-4 rounded-md max-w-xs self-end"
-              key={`data-message-discussion-${index}`}
-            >
-              {message}
-            </span>
+            <div className="bg-blue-500 px-4 py-2 rounded-md text-white w-1/2 self-end break-words">
+              <div>{message}</div>
+            </div>
           ))}
           <div ref={scrollRef} />
         </div>
