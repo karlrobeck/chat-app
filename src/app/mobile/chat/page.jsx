@@ -52,7 +52,10 @@ const Page = () => {
       </section>
       <section className="h-screen overflow-auto py-4 flex flex-col gap-3">
         {messages.map((message, index) => (
-          <span className="ms-auto break-words w-1/2 bg-blue-500 px-4 py-2 rounded-md">
+          <span
+            key={`data-chat-messages-${index}`}
+            className="ms-auto break-words w-1/2 bg-blue-500 px-4 py-2 rounded-md"
+          >
             {message}
           </span>
         ))}
