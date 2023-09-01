@@ -67,8 +67,11 @@ const Page = () => {
           <Menu.Title>Faculty Staff</Menu.Title>
           <Menu.Items>
             {teachers.map((name, index) => (
-              <Link href={`/mobile/chat?id=${index}`}>
-                <Menu.Item key={`data-menu-${name}-${index}`}>{name}</Menu.Item>
+              <Link
+                key={`data-menu-${name}-${index}`}
+                href={`/mobile/chat?id=${index}`}
+              >
+                <Menu.Item>{name}</Menu.Item>
               </Link>
             ))}
           </Menu.Items>
