@@ -6,7 +6,7 @@ import Menu from "@/lib/components/Menu";
 import Sidebar from "@/lib/components/Sidebar";
 import Link from "next/link";
 import React, { useState } from "react";
-import { List } from "react-bootstrap-icons";
+import { Chat, Gear, List, People } from "react-bootstrap-icons";
 
 const Page = () => {
   const teachers = [
@@ -34,10 +34,10 @@ const Page = () => {
       {/* Sidebar */}
       {showSidebar && (
         <div
-          className="absolute inset-0 z-20 w-full"
+          className="absolute inset-0 z-10 w-full"
           onClick={() => setShowSidebar((prev) => !prev)}
         >
-          <Sidebar className="p-4 w-3/4">
+          <Sidebar className="p-4 w-3/4 z-20">
             <Sidebar.Header>
               <div className="flex gap-3">
                 <Avatar>
@@ -52,6 +52,27 @@ const Page = () => {
                 </div>
               </div>
             </Sidebar.Header>
+            <Sidebar.Content>
+              <Menu>
+                <Menu.Section>
+                  <Menu.Title>Main Menu</Menu.Title>
+                  <Menu.Items>
+                    <Menu.Item>
+                      <Chat />
+                      <span>Chat</span>
+                    </Menu.Item>
+                    <Menu.Item>
+                      <People />
+                      <span>Groups</span>
+                    </Menu.Item>
+                    <Menu.Item>
+                      <Gear />
+                      <span>Settings</span>
+                    </Menu.Item>
+                  </Menu.Items>
+                </Menu.Section>
+              </Menu>
+            </Sidebar.Content>
           </Sidebar>
         </div>
       )}
