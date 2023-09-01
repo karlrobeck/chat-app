@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
-    redirect("/chat");
+    redirect("/mobile/menu");
   }, []);
 
   return <main>test</main>;

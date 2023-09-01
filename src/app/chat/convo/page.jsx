@@ -5,7 +5,7 @@ import Input from "@/lib/components/Input";
 import Textarea from "@/lib/components/Textarea";
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";
-import { Send } from "react-bootstrap-icons";
+import { ChevronLeft, ChevronRight, List, Send } from "react-bootstrap-icons";
 
 const Page = () => {
   const searchQuery = useSearchParams();
@@ -14,12 +14,16 @@ const Page = () => {
   const [messages, setMessages] = useState([]);
   const [userMessage, setUserMessage] = useState("");
   const scrollRef = useRef();
+
   const createDiscussion = (e) => {
     e.preventDefault();
     setshowDiscussion((prev) => !prev);
     setTopic((prev) => e.target.topic.value);
-    setMessages((prev) => [...prev, e.target.topic_message.value]);
+    if (e.target.topic_message.value) {
+      setMessages((prev) => [...prev, e.target.topic_message.value]);
+    }
   };
+
   const sendMessage = (e) => {
     e.preventDefault();
     if (e.target.user_message.value !== "") {
@@ -59,7 +63,10 @@ const Page = () => {
         </div>
       )}
       <div className="h-screen flex flex-col justify-between">
-        <section className="p-4 border-b">
+        <section className="p-4 border-b flex items-center">
+          <Button className="block sm:hidden btn-ghost">
+            <ChevronLeft />
+          </Button>
           <Breadcrumbs>
             <Breadcrumbs.Body>
               <Breadcrumbs.Item>
