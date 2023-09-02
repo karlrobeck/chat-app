@@ -92,7 +92,21 @@ const Page = () => {
                 key={`data-menu-${name}-${index}`}
                 href={`/mobile/chat?id=${index}`}
               >
-                <Menu.Item>{name}</Menu.Item>
+                <Menu.Item>
+                  <Avatar className="avatar-xl">
+                    <img
+                      src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                      alt="avatar"
+                    />
+                  </Avatar>
+                  <div className="flex flex-col w-full">
+                    <div className="flex justify-between">
+                      <span>{name}</span>
+                      <span>Time</span>
+                    </div>
+                    <span>Recent Message</span>
+                  </div>
+                </Menu.Item>
               </Link>
             ))}
           </Menu.Items>
